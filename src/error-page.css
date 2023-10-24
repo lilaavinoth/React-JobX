@@ -1,0 +1,12 @@
+.center-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.error-page {
+    text-align: center;
+    padding: 20px;
+  }
