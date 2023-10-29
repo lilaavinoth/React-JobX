@@ -5,10 +5,32 @@ import React, { useEffect, useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import jwtDecode from "jwt-decode";
 import Cookies from "js-cookie";
-// import { useAuth } from "./auth_context.jsx";
-// import { Link, useHistory } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import LiveJobs from "../homePageComponents/listJobs";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { useUser } from "../global/userContext"; // Import the useUser hook
+import "firebase/firestore";
+// import firebase from "firebase/app"
+import "firebase/auth";
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  where,
+  query,
+  doc,
+} from "firebase/firestore";
+
+// Your Firebase project configuration
+initializeApp({
+  apiKey: "AIzaSyAmCr-J9jsk1y0TqHavRr9ouE3BAbJy5mU",
+  authDomain: "jobx-global.firebaseapp.com",
+  projectId: "jobx-global",
+  storageBucket: "jobx-global.appspot.com",
+  messagingSenderId: "897781012043",
+  appId: "1:897781012043:web:8cbe08b431aa82b96d9fce",
+  measurementId: "G-NVTX90XTZD",
+});
 
 function Root() {
   const isDesktopOrLaptop = useMediaQuery({
@@ -17,47 +39,26 @@ function Root() {
   const isBigScreen = useMediaQuery({ query: "(min-width: 769px)" });
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-  const { user, setUser } = useUser(); // Access user and setUser from the context
-
   if (isBigScreen) {
     // function buttonText() {
     //   if (Object.keys(user).length == 0) {
     //     return "Login"
     //   }
     // }
-    
+    // <GetCities database={db}/>
 
     return (
       <>
-        <nav className="nav">
-          <a href="/" className="site-title">
-            Job X
-          </a>
-          <ul>
-            <div className="dropdown" data-dropdown>
-              <button className="nav_btn_left" data-dropdown-button>
-                Post Job
-              </button>
-              <div className="dropdownMenu">line1 line2</div>
-            </div>
-            <div className="dropdown" data-dropdown>
-              <button className="nav_btn_right" data-dropdown-button>
-                {Object.keys(user).length == 0 ? "Login" : "Account"}
-              </button>
-              <div className="dropdownMenu">
-                <Signup className="loginForm" />
-              </div>
-              <div className="dropdownMenu">line2 line3</div>
-            </div>
-          </ul>
-        </nav>
+        <NavBar />
+        <LiveJobs />
       </>
     );
   } else if (isMobile) {
     return (
       <>
-        <p>this is a mobile</p>
-        <div id="signInDiv"></div>
+        <NavBar />
+        <LiveJobs />
+        {/* <div id="signInDiv"></div>
         {Object.keys(user).length != 0 && (
           <button onClick={(e) => handleSignOut(e)}> Sign out</button>
         )}
@@ -67,7 +68,7 @@ function Root() {
             <img src={user.picture}></img>
             <h3>{user.name}</h3>
           </div>
-        )}
+        )} */}
       </>
     );
   }
@@ -204,6 +205,35 @@ function Signup() {
         {/* Already have an account? <Link to="/login">Log In</Link> */}
       </div>
     </>
+  );
+}
+
+function NavBar() {
+  const { user, setUser } = useUser(); // Access user and setUser from the context
+
+  return (
+    <nav className="nav">
+      <a href="/" className="site-title">
+        Job-X
+      </a>
+      <ul>
+        <div className="dropdown" data-dropdown>
+          <button className="nav_btn_left" data-dropdown-button>
+            Post Job
+          </button>
+          <div className="dropdownMenu">line1 line2</div>
+        </div>
+        <div className="dropdown" data-dropdown>
+          <button className="nav_btn_right" data-dropdown-button>
+            {Object.keys(user).length == 0 ? "Login" : "Account"}
+          </button>
+          <div className="dropdownMenu">
+            <Signup className="loginForm" />
+          </div>
+          <div className="dropdownMenu">line2 line3</div>
+        </div>
+      </ul>
+    </nav>
   );
 }
 

@@ -124,3 +124,97 @@ body {
 .loginForm > input {
     margin-bottom: .5rem;
   }
+
+.jobListCard {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-block-start: 1rem;
+    border-radius: 0.7rem;
+    padding: 0.5rem;
+    background-color: white;
+    transition: border 0.3s;
+    border: 0.2rem solid transparent;
+}
+
+.jobListCard:hover {
+    border: 0.2rem solid rgb(41, 199, 88);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.left-partition {
+    flex: 1;
+    background-color: #e9eaf6;
+    overflow-y: auto;
+    /* border-right: 0.2rem solid #fbfbfb; */
+}
+
+.right-partition {
+    flex: 0 0 60%;
+    background-color: #e9eaf6;
+    position: sticky;
+}
+
+.jobCardHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: Arial, sans-serif;
+}
+
+.jobTitle_p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.jobTypeTown {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.companyName_p {
+    color: #275ce6;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.paydisplayBox {
+    background-color: #ffddee;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    max-width: 100%;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+}
+
+.jobDescbox {
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.jobFullDesc {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.7rem;
+    padding: 0.5rem;
+    background-color: white;
+    height: 100%;
+}
