@@ -39,9 +39,19 @@ body {
     margin-top: 0.50rem;
 }
 
+.signInBtn {
+    border: 1rem;
+    background-color: rgb(6, 159, 6);
+    color: white;
+    border-radius: 0.50rem;
+    padding: .50rem;
+    width: 100%;
+    margin-top: 0.50rem;
+}
+
 .dropdownMenu {
     position: absolute;
-    min-width: 16rem;
+    min-width: 19rem;
     right: 0;
     top: calc(100% + .25rem);
     background-color: rgb(239, 216, 216);
@@ -53,6 +63,7 @@ body {
     pointer-events: none;
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
     transform: translateY(-10px);
+    z-index: 1000;
 }
 
 .site-title {
@@ -141,6 +152,18 @@ body {
     border: 0.2rem solid rgb(41, 199, 88);
 }
 
+.selectedJobListCard {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-block-start: 1rem;
+    border-radius: 0.7rem;
+    padding: 0.5rem;
+    background-color: rgb(228, 241, 229);
+    transition: border 0.3s;
+    border: 0.2rem solid rgb(41, 199, 88);
+}
+
 .container {
     display: flex;
     width: 100%;
@@ -158,6 +181,7 @@ body {
     flex: 0 0 60%;
     background-color: #e9eaf6;
     position: sticky;
+    margin-bottom: 1rem
 }
 
 .jobCardHeader {
@@ -170,6 +194,12 @@ p {
     margin-top: 0;
     margin-bottom: 0;
     font-family: Arial, sans-serif;
+}
+
+a {
+    font-family: Arial, sans-serif;
+    text-decoration: underline;
+    color: blue;
 }
 
 .jobTitle_p {
@@ -208,7 +238,7 @@ p {
     margin-bottom: 0.4rem;
 }
 
-.jobFullDesc {
+.jobFullDisplay {
     margin-left: 1rem;
     margin-bottom: 1rem;
     margin-right: 1rem;
@@ -218,3 +248,104 @@ p {
     background-color: white;
     height: 100%;
 }
+
+.jobFullDesc {
+    margin-left: 1rem;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    margin-top: 1rem;
+    margin-bottom: 0%;
+}
+
+label {
+    font-family: Arial, sans-serif;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.8rem;
+}
+
+.passwordLabel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.signupPrompt {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+    margin-top: 0.2rem;
+}
+
+.smallLabel {
+    font-size: 0.9rem;
+}
+
+.jobFullHeading {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.customImageStyle {
+    background-color: lightblue;
+    color: black;
+    min-width: 3rem; 
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    margin-right: 0.4rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 0.2rem;
+ }
+
+ .bottomContainer {
+    background-color: blue;
+    height: 3rem;
+ }
+
+ .basicJobData {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-top: 1rem
+ }
+
+ .basicJobDataSingle {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+ }
+
+ .benefitsList {
+    margin-top: 1rem;
+    background-color: rgb(207, 229, 226);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: fit-content;
+    gap: 0.2rem;
+ }
+
+ .listHeading {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+ }
+  
+

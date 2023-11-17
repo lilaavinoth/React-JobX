@@ -1,0 +1,24 @@
+"filename", "language", "JavaScript JSX", "CSS", "XML", "JSON", "Markdown", "JavaScript", "HTML", "comment", "blank", "total"
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/README.md", "Markdown", 0, 0, 0, 0, 5, 0, 0, 0, 4, 9
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/dist/assets/index-415d54ac.js", "JavaScript", 0, 0, 0, 0, 0, 191, 0, 2234, 1, 2426
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/dist/assets/index-a92a7975.css", "CSS", 0, 1, 0, 0, 0, 0, 0, 0, 1, 2
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/dist/assets/react-35ef61ed.svg", "XML", 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/dist/index.html", "HTML", 0, 0, 0, 0, 0, 0, 15, 0, 2, 17
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/dist/vite.svg", "XML", 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/index.html", "HTML", 0, 0, 0, 0, 0, 0, 14, 0, 1, 15
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/package-lock.json", "JSON", 0, 0, 0, 4548, 0, 0, 0, 0, 1, 4549
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/package.json", "JSON", 0, 0, 0, 35, 0, 0, 0, 0, 1, 36
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/public/vite.svg", "XML", 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/assets/react.svg", "XML", 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/error-page.css", "CSS", 0, 12, 0, 0, 0, 0, 0, 0, 1, 13
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/error-page.jsx", "JavaScript JSX", 15, 0, 0, 0, 0, 0, 0, 0, 3, 18
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/global/userContext.jsx", "JavaScript JSX", 13, 0, 0, 0, 0, 0, 0, 0, 5, 18
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/homePageComponents/listJobs.jsx", "JavaScript JSX", 134, 0, 0, 0, 0, 0, 0, 5, 13, 152
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/index.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/main.jsx", "JavaScript JSX", 21, 0, 0, 0, 0, 0, 0, 6, 3, 30
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/routes/auth_context.jsx", "JavaScript JSX", 49, 0, 0, 0, 0, 0, 0, 0, 14, 63
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/routes/root.css", "CSS", 0, 201, 0, 0, 0, 0, 0, 1, 32, 234
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/routes/root.jsx", "JavaScript JSX", 189, 0, 0, 0, 0, 0, 0, 55, 29, 273
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/src/routes/script.jsx", "JavaScript JSX", 13, 0, 0, 0, 0, 0, 0, 0, 3, 16
+"/Users/lilaavinoth/Documents/GitHub/react-job-x/vite.config.js", "JavaScript", 0, 0, 0, 0, 0, 5, 0, 1, 2, 8
+"Total", "-", 434, 214, 4, 4583, 5, 196, 29, 2302, 117, 7884
