@@ -9,7 +9,7 @@ import {
 import "font-awesome/css/font-awesome.min.css";
 import Model from "./Model";
 
-function LiveJobs(props) {
+function LiveJobsMobile(props) {
   const [documents, setDocuments] = useState([]);
 
   useEffect(() => {
@@ -61,28 +61,134 @@ function LiveJobs(props) {
     }
   }, [documents, dataToPass]);
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <div className="container">
-        <div className="left-partition">
-          {documents.map((document) => (
-            <SingleElement
-              key={document.id}
-              data={document}
-              setDataToPass={setDataToPass}
-              isSelected={selectedDocumentId === document.id}
-              onDocumentClick={setSelectedDocumentId}
-            />
-          ))}
-        </div>
+      <div className="left-partition">
+        {documents.map((document) => (
+          <SingleElementMobile
+            key={document.id}
+            data={document}
+            setDataToPass={setDataToPass}
+            isSelected={selectedDocumentId === document.id}
+            onDocumentClick={setSelectedDocumentId}
+            sliderStatus={setIsOpen}
+          />
+        ))}
+      </div>
+
+      <SlideFullJobDescDisplay
+        dataToPass={dataToPass}
+        isOpenStatus={isOpen}
+        setIsOpenStatus={setIsOpen}
+      />
+
+      {/* <div className="container">
         <div className="right-partition">
           <FullJobDescDisplay dataToPass={dataToPass} />
         </div>
       </div>
-      <div className="bottomContainer"></div>
+      <div className="bottomContainer"></div> */}
     </>
   );
 }
+
+const SlideFullJobDescDisplay = (props) => {
+  const closeSlider = () => {
+    props.setIsOpenStatus(false);
+  };
+
+  if (!props.isOpenStatus) return null;
+
+  const [isRendered, setIsRendered] = useState(false);
+
+  useEffect(() => {
+    // Set a short delay to apply the initial transition effect
+    const delayTimeout = setTimeout(() => {
+      setIsRendered(true);
+    }, 0);
+
+    return () => clearTimeout(delayTimeout); // Clear the timeout if the component unmounts
+  }, []);
+
+  
+
+  return (
+    <>
+      <div
+        className={`slide-modal-overlay ${
+          isRendered && props.isOpenStatus ? "active" : ""
+        }`}
+        onClick={closeSlider}
+      />
+      <div
+        className={`slide-modal-content ${
+          isRendered && props.isOpenStatus ? "active" : ""
+        }`}
+      >
+        {/* <button onClick={closeSlider} className="closeBtnMobile">
+          Close
+        </button> */}
+        <div>
+          <div className="jobFullDisplay">
+            <div className="jobFullHeading">
+              <div>
+                {
+                  <GenerateCustomImageText
+                    word={props.dataToPass?.companyName}
+                  />
+                }
+              </div>
+              <div>
+                {<h2>{props.dataToPass?.jobTitle}</h2> ?? "no data"}
+                {<p>{props.dataToPass?.companyName}</p> ?? "no data"}
+              </div>
+            </div>
+            <div className="basicJobData">
+              <div className="basicJobDataSingle">
+                <i className="fa fa-map-marker"></i>
+                {<p>{props.dataToPass?.townCity}</p> ?? "no data"}
+              </div>
+              <div className="basicJobDataSingle">
+                {
+                  <JobDateCalculator
+                    jobTimeStamp={props.dataToPass?.timestamp ?? "no data"}
+                  />
+                }
+              </div>
+              <div>
+                {props.dataToPass?.payType === "Range" ? (
+                  <ShowPayRangeFull datashare={props.dataToPass} />
+                ) : (
+                  <ShowPayExceptRangeFull datashare={props.dataToPass} />
+                )}
+              </div>
+              <div className="gridContainer">
+                <ShowJobBenefits datashare={props.dataToPass?.benefits} />
+                <ShowJobSchedule datashare={props.dataToPass?.jobSchedule} />
+                <ShowSupplementalPay
+                  datashare={props.dataToPass?.supplementalPay}
+                />
+              </div>
+            </div>
+            <div className="jobFullDesc">
+              {<p>{props.dataToPass?.jobDesc ?? "no data"}</p>}
+            </div>
+            <div className="applyBtnDiv">
+              <button className="applyBtn" onClick={() => setIsOpen(true)}>
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+        <button onClick={closeSlider} className="bottomCloseButton">
+          Close
+        </button>
+      </div>
+    </>
+  );
+};
 
 function FullJobDescDisplay(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -229,8 +335,17 @@ function JobDateCalculator(props) {
   }
 }
 
+function GenerateCustomImageTextMobile(props) {
+  let companyWords = props.word?.substring(0, 2) ?? "cn";
+  return (
+    <>
+      <div className="customImageStyleMobile">{companyWords}</div>
+    </>
+  );
+}
+
 function GenerateCustomImageText(props) {
-  let companyWords = props.word?.substring(0, 2) ?? "ni";
+  let companyWords = props.word?.substring(0, 2) ?? "cn";
   return (
     <>
       <div className="customImageStyle">{companyWords}</div>
@@ -288,10 +403,11 @@ function ShowPayExceptRangeFull(props) {
   );
 }
 
-function SingleElement(props) {
+function SingleElementMobile(props) {
   const passToRight = (data) => {
     props.setDataToPass(data);
     props.onDocumentClick(props.data.id);
+    props.sliderStatus(true);
   };
   return (
     <>
@@ -301,19 +417,24 @@ function SingleElement(props) {
           passToRight(props.data);
         }}
       >
-        <div className="jobCardHeader">
-          <p className="jobTitle_p">{props.data.jobTitle}</p>
-          <p className="companyName_p">
-            {props.data.companyName === null
-              ? "Company Name"
-              : props.data.companyName}
-          </p>
+        <div className="jobFullHeadingMobile">
+          {<GenerateCustomImageTextMobile word={props.data?.companyName} />}
+          <div className="jobCardHeader">
+            <p className="jobTitle_p">{props.data?.jobTitle}</p>
+            <p className="companyName_p">
+              {props.data?.companyName == null
+                ? "Company Name"
+                : props.data.companyName}
+            </p>
+          </div>
         </div>
+
         <div className="jobTypeTown">
           <p>{props.data.jobType === null ? "" : props.data.jobType[0]}</p>
           <p>•</p>
           <p className="jobAddress_p">{props.data.townCity}</p>
         </div>
+
         {props.data.payType === "Range" ? (
           <ShowPayRange datashare={props} />
         ) : (
@@ -331,4 +452,4 @@ function SingleElement(props) {
   );
 }
 
-export default LiveJobs;
+export default LiveJobsMobile;

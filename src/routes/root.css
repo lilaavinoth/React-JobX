@@ -194,6 +194,7 @@ p {
     margin-top: 0;
     margin-bottom: 0;
     font-family: Arial, sans-serif;
+    font-size: 14px;
 }
 
 a {
@@ -247,13 +248,15 @@ a {
     padding: 0.5rem;
     background-color: white;
     height: 100%;
+    overflow: auto;
 }
 
 .jobFullDesc {
     margin-left: 1rem;
-        margin-bottom: 1rem;
-        margin-right: 1rem;
-        margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+
 }
 
 h2 {
@@ -289,11 +292,31 @@ label {
     font-size: 0.9rem;
 }
 
+.jobFullHeadingMobile {
+    display: flex;
+    flex-direction: row;
+}
+
 .jobFullHeading {
     margin-left: 1rem;
     display: flex;
     flex-direction: row;
 }
+
+.customImageStyleMobile {
+    background-color: lightblue;
+    color: black;
+    min-width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    margin-right: 0.4rem;
+    font-weight: bold;
+    padding: 0.2rem;
+ }
 
 .customImageStyle {
     background-color: lightblue;
@@ -320,6 +343,7 @@ label {
     display: flex;
     flex-direction: column;
     margin-left: 1rem;
+    margin-right: 1rem;
     margin-top: 1rem
  }
 
@@ -330,13 +354,11 @@ label {
  }
 
  .benefitsList {
-    margin-top: 1rem;
     background-color: rgb(207, 229, 226);
     display: flex;
     flex-direction: column;
     border-radius: 0.5rem;
     padding: 0.5rem;
-    width: fit-content;
     gap: 0.2rem;
  }
 
@@ -347,5 +369,133 @@ label {
     display: flex;
     justify-content: center;
  }
-  
 
+ .gridContainer {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+ }
+
+ .applyBtnDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+ }
+
+ .applyBtn {
+    width: 50%;
+    background-color: rgb(74, 126, 247);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    border: 1rem;
+ }
+
+ .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+  
+  .modal-content {
+    position: fixed;
+    background: #fff;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    opacity: 1;
+    transform: translateY(100%);
+    transition: opacity 200ms ease-in-out, transform 0.3s ease-in-out;
+  }
+
+.modal-overlay.active,
+.modal-content.active {
+  opacity: 1;
+  transform: translateY(0); /* Display from the bottom to the top */
+}
+
+.closeBtnMobile {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgb(228, 17, 14);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    border: 1rem;
+ }
+
+ .closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgb(228, 17, 14);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    border: 1rem;
+ }
+
+ .bottomCloseButton {
+    position: fixed;
+    bottom: 1rem;
+    width: 80%;
+    background-color: rgb(228, 17, 14);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    border: 1rem;
+ }
+
+ .slide-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+  
+  .slide-modal-content {
+    position: fixed;
+    background: #fff;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    opacity: 1;
+    transform: translateY(100%);
+    transition: opacity 200ms ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .slide-modal-overlay.active,
+  .slide-modal-content.active {
+    opacity: 1;
+    transform: translateY(0);
+  }

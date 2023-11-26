@@ -1,47 +1,73 @@
-import "./root.css";
-import { useMediaQuery } from "react-responsive";
-import "./script.jsx";
-import React, { useEffect, useState } from "react";
+// import { useUser } from "../global/userContext";
+import { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
 import Cookies from "js-cookie";
-import LiveJobs from "../homePageComponents/listJobs";
-import LiveJobsMobile from "../homePageComponents/listJobsMobile";
+import "../routes/root.css";
 import { useUser } from "../global/userContext"; // Import the useUser hook
-import "firebase/firestore";
-import "firebase/auth";
-import { initializeApp } from "firebase/app";
-import { Link, useNavigate } from "react-router-dom";
 
-// Your Firebase project configuration
-initializeApp({
-  apiKey: "AIzaSyAmCr-J9jsk1y0TqHavRr9ouE3BAbJy5mU",
-  authDomain: "jobx-global.firebaseapp.com",
-  projectId: "jobx-global",
-  storageBucket: "jobx-global.appspot.com",
-  messagingSenderId: "897781012043",
-  appId: "1:897781012043:web:8cbe08b431aa82b96d9fce",
-  measurementId: "G-NVTX90XTZD",
-});
 
-function Root() {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 1224px)",
-  });
-  const isBigScreen = useMediaQuery({ query: "(min-width: 769px)" });
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+function Model({ status, setStatus, jobData }) {
+  const closeModel = () => {
+    setStatus(false);
+  };
 
-  if (isBigScreen) {
+  if (!status) return null;
+
+  const { user, setUser } = useUser(); // Access user and setUser from the context
+
+  const [isRendered, setIsRendered] = useState(false);
+
+  useEffect(() => {
+    // Set a short delay to apply the initial transition effect
+    const delayTimeout = setTimeout(() => {
+      setIsRendered(true);
+    }, 0);
+
+    return () => clearTimeout(delayTimeout); // Clear the timeout if the component unmounts
+  }, []);
+
+  if (Object.keys(user).length == 0) {
+    const handleSignIn = () => {
+      // Handle sign-in success for this route
+      // ...
+    };
     return (
       <>
-        <NavBar />
-        <LiveJobs />
+        <div
+          className={`modal-overlay ${isRendered && status ? "active" : ""}`}
+          onClick={closeModel}
+        />
+        <div
+          className={`modal-content ${isRendered && status ? "active" : ""}`}
+        >
+          <button className="closeBtn" onClick={closeModel}>
+            close
+          </button>
+          <Signup />
+        </div>
       </>
     );
-  } else if (isMobile) {
+  } else {
     return (
       <>
-        <NavBar />
-        <LiveJobsMobile />
+        <div
+          className={`modal-overlay ${isRendered && status ? "active" : ""}`}
+          onClick={closeModel}
+        />
+        <div
+          className={`modal-content ${isRendered && status ? "active" : ""}`}
+        >
+          {/* <button className="closeBtn" onClick={closeModel}>
+            close
+          </button>
+          <h2>Hello, this is your modal content!</h2>
+          <p>This is a paragraph inside the modal.</p>{" "}
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>{" "}
+          </ul> */}
+        </div>
       </>
     );
   }
@@ -194,41 +220,5 @@ function Signup() {
   );
 }
 
-function NavBar() {
-  const { user, setUser } = useUser(); // Access user and setUser from the context
-  const navigate = useNavigate();
-  const changePage = () => {
-    navigate("/postJob");
-  };
 
-  return (
-    <nav className="nav">
-      <a className="site-title" onClick={changePage}>
-        Job-X
-      </a>
-      <ul>
-        <div className="dropdown" data-dropdown>
-          <button
-            className="nav_btn_left"
-            data-dropdown-button
-            onClick={changePage}
-          >
-            Post Job
-          </button>
-          <div className="dropdownMenu">line1 line2</div>
-        </div>
-        <div className="dropdown" data-dropdown>
-          <button className="nav_btn_right" data-dropdown-button>
-            {Object.keys(user).length == 0 ? "Login" : "Account"}
-          </button>
-          <div className="dropdownMenu">
-            <Signup className="loginForm" />
-          </div>
-          <div className="dropdownMenu"></div>
-        </div>
-      </ul>
-    </nav>
-  );
-}
-
-export default Root;
+export default Model;
