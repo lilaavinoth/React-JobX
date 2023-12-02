@@ -1,0 +1,32 @@
+.backgrounds {
+    background-color: #ced0e0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.section1 {
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.section2 {
+    height: 100vh;
+    background-color: #e5a7a7;
+}
+
+.section3 {
+    height: 100vh;
+    background-color: #e2a1d0;
+}
+
+.employeer_account_creation {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+}

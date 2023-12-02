@@ -1,4 +1,4 @@
-import "./root.css";
+// import "./root.css";
 import { useMediaQuery } from "react-responsive";
 import "./script.jsx";
 import React, { useEffect, useState } from "react";

@@ -82,6 +82,7 @@ body {
     padding-bottom: 0.5rem;
     border-radius: 1rem 0.2rem 0.2rem 1rem;
     border: none;
+    align-items: center;
 }
 
 .dropdown.active > .nav_btn_left,
@@ -256,7 +257,6 @@ a {
     margin-bottom: 1rem;
     margin-right: 1rem;
     margin-top: 1rem;
-
 }
 
 h2 {
