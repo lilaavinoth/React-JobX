@@ -20,6 +20,27 @@
     background-color: #e2a1d0;
 }
 
+.section4 {
+    height: 100vh;
+    background-color: #ada1e2;
+}
+
+.rangeDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.minMax {
+    flex-direction: column;
+}
+
+.centerVertical {
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
 .employeer_account_creation {
     display: flex;
     flex-direction: column;

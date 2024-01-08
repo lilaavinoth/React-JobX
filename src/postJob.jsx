@@ -3,6 +3,8 @@ import "./postJob.css";
 import "react-phone-number-input/style.css";
 import Section1 from "./sections/Section1";
 import Section2 from "./sections/Section2";
+import Section3 from "./sections/Section3";
+import Section4 from "./sections/Section4";
 
 function PostJob() {
   const [currentSection, setCurrentSection] = useState(1);
@@ -19,7 +21,9 @@ function PostJob() {
       case 2:
         return <Section2 nextSection={handleNext} prevSection={handlePrev} />;
       case 3:
-        return <Section3 prevSection={handlePrev} />;
+        return <Section3 nextSection={handleNext} prevSection={handlePrev} />;
+      case 4:
+        return <Section4 nextSection={handleNext} prevSection={handlePrev} />;
       default:
         return null;
     }
@@ -28,17 +32,6 @@ function PostJob() {
   return (
     <>
       <div className="backgrounds">{renderSection()}</div>
-    </>
-  );
-}
-
-function Section3(props) {
-  return (
-    <>
-      <div className="section3">
-        <p>This is section 3</p>
-        <button onClick={props.prevSection}>Prev page</button>
-      </div>
     </>
   );
 }
